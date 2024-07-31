@@ -18,18 +18,14 @@ const { authMiddleware } = require('../middlewares/authMiddleware');
 
 const authRouter = new express.Router();
 
-authRouter.post(
-  '/registration',
-  catchError(authMiddleware),
-  catchError(register),
-);
+authRouter.post('/registration', catchError(register));
 authRouter.get(
   '/activation/:activationToken',
   catchError(authMiddleware),
   catchError(activate),
 );
-authRouter.post('/login', catchError(authMiddleware), catchError(login));
-authRouter.get('/refresh', catchError(authMiddleware), catchError(refresh));
+authRouter.post('/login', catchError(login));
+authRouter.get('/refresh', catchError(refresh));
 authRouter.post('/logout', catchError(authMiddleware), catchError(logout));
 authRouter.post(
   '/changePassword',
