@@ -10,6 +10,12 @@ const client = new Sequelize({
   database: process.env.POSTGRES_DATABASE,
   dialect: 'postgres',
   dialectModule: pg,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 module.exports = {
