@@ -32,7 +32,7 @@ app.use(authRouter);
 app.use('/users', userRouter);
 
 app.use((req, res) => {
-  res.status(404).send('The page is not found');
+  res.status(404).send('The page is not founddd');
 });
 
 app.use(errorMiddleware);
