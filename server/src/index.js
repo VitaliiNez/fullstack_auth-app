@@ -20,7 +20,7 @@ const PORT = process.env.PORT;
 
 app.use(
   cors({
-    origin: 'https://fullstack-auth-app-gold.vercel.app',
+    origin: process.env.CLIENT_HOST,
     credentials: true,
   }),
 );

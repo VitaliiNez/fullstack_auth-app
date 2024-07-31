@@ -19,38 +19,30 @@ const { authMiddleware } = require('../middlewares/authMiddleware');
 const authRouter = new express.Router();
 
 authRouter.post('/registration', catchError(register));
-authRouter.get(
-  '/activation/:activationToken',
-  catchError(authMiddleware),
-  catchError(activate),
-);
+authRouter.get('/activation/:activationToken', catchError(activate));
 authRouter.post('/login', catchError(login));
 authRouter.get('/refresh', catchError(refresh));
 authRouter.post('/logout', catchError(logout));
 authRouter.post(
   '/changePassword',
-
+  catchError(authMiddleware),
   catchError(resetPassword),
 );
 authRouter.post(
   '/changeAuthPassword',
-
+  catchError(authMiddleware),
   catchError(changeAuthPass),
 );
 authRouter.post('/reset', catchError(reset));
-authRouter.get(
-  '/reset/:resetToken',
-
-  catchError(resetChecker),
-);
+authRouter.get('/reset/:resetToken', catchError(resetChecker));
 authRouter.patch(
   '/update',
-
+  catchError(authMiddleware),
   catchError(updateUserName),
 );
 authRouter.patch(
   '/confirmChangeEmail',
-
+  catchError(authMiddleware),
   catchError(changeEmail),
 );
 
