@@ -3,11 +3,11 @@ const { Sequelize } = require('sequelize');
 const pg = require('pg');
 
 const client = new Sequelize({
-  host: process.env.DB_HOST || 'postgres',
-  username: process.env.DB_USER,
+  host: process.env.POSTGRES_HOST || 'postgres',
+  username: process.env.POSTGRES_USER,
   port: process.env.DB_PORT,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DATABASE,
   dialect: 'postgres',
   dialectModule: pg,
 });
