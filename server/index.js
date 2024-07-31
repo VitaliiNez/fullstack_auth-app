@@ -12,9 +12,9 @@ const app = express();
 
 const cookieParser = require('cookie-parser');
 
-const { authRouter } = require('./routes/auth.route');
-const { userRouter } = require('./routes/user.route');
-const { errorMiddleware } = require('./middlewares/errorMiddleware');
+const { authRouter } = require('./src/routes/auth.route');
+const { userRouter } = require('./src/routes/user.route');
+const { errorMiddleware } = require('./src/middlewares/errorMiddleware');
 
 const PORT = process.env.PORT;
 
