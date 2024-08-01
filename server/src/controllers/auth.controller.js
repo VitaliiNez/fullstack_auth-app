@@ -283,6 +283,13 @@ const changeEmail = async (req, res) => {
 
   const currentUser = await findUserById(user.id);
 
+
+  const findAnotherUserByEmail = await findByEmail(user.email);
+
+  if (findAnotherUserByEmail) {
+    throw ApiError.badRequest('This email is already exist');
+  }
+
   if (!currentUser) {
     throw ApiError.badRequest('User is not found');
   }
