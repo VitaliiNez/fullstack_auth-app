@@ -8,7 +8,6 @@ const {
   registerUser,
   findUserById,
   findByEmailAndId,
-  changeAuthEmail,
 } = require('../services/user.service');
 
 const { sign, verifyRefresh, signRefresh } = require('../services/jwt.service');
@@ -141,15 +140,11 @@ const refresh = async (req, res) => {
 
   const userData = await verifyRefresh(refreshToken);
 
-  console.log('userData ->', userData);
-
   if (!userData) {
     throw ApiError.unauthorized();
   }
 
   const token = await getByToken(refreshToken);
-
-  console.log('token ->', token);
 
   if (!token) {
     throw ApiError.unauthorized();
@@ -282,7 +277,6 @@ const changeEmail = async (req, res) => {
   const { user } = req.body;
 
   const currentUser = await findUserById(user.id);
-
 
   const findAnotherUserByEmail = await findByEmail(user.email);
 
