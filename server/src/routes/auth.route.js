@@ -20,7 +20,7 @@ const authRouter = new express.Router();
 
 authRouter.post('/registration', catchError(register));
 authRouter.get('/activation/:activationToken', catchError(activate));
-authRouter.post('/login', catchError(login));
+authRouter.post('/login', login);
 authRouter.get('/refresh', catchError(refresh));
 authRouter.post('/logout', catchError(logout));
 authRouter.post('/changePassword', catchError(resetPassword));
