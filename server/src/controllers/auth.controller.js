@@ -139,11 +139,15 @@ const refresh = async (req, res) => {
 
   const userData = await verifyRefresh(refreshToken);
 
+  console.log('userData ->', userData);
+
   if (!userData) {
     throw ApiError.unauthorized();
   }
 
   const token = await getByToken(refreshToken);
+
+  console.log('token ->', token);
 
   if (!token) {
     throw ApiError.unauthorized();
